@@ -23,4 +23,15 @@
  */
 void print(const char* str);
 
+/**
+ * @brief Writes a string followed by a newline to the global write buffer.
+ *
+ * This function first writes the given string to the global write buffer
+ * using the `print` function, and then appends a newline character (`\n`)
+ * to the buffer. If the buffer becomes full, it is flushed to standard output.
+ *
+ * @param str The string to write to the buffer. If `str` is NULL, the function does nothing.
+ */
+void println(const char* str);
+
 #endif //STDO_LIBRARY_H
