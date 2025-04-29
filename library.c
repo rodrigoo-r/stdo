@@ -23,7 +23,7 @@
 #endif
 
 // Define a global buffer
-char *stdo_write_buffer[STDO_WRITE_BUFFER_SIZE];
+char stdo_write_buffer[STDO_WRITE_BUFFER_SIZE];
 int stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
 int stdo_has_atexit_listener = FALSE;
