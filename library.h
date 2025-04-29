@@ -11,6 +11,6 @@
 #ifndef STDO_LIBRARY_H
 #define STDO_LIBRARY_H
 
-void hello(void);
+void print(const char* str);
 
 #endif //STDO_LIBRARY_H
