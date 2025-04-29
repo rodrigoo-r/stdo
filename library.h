@@ -11,6 +11,16 @@
 #ifndef STDO_LIBRARY_H
 #define STDO_LIBRARY_H
 
+/**
+ * @brief Writes a string to the global write buffer.
+ *
+ * This function adds the given string to the global write buffer, flushing the buffer
+ * to standard output if it becomes full. If the buffer is not already set to flush
+ * on program exit, it registers an `atexit` listener to ensure the buffer is flushed
+ * when the program terminates.
+ *
+ * @param str The string to write to the buffer. If `str` is NULL, the function does nothing.
+ */
 void print(const char* str);
 
 #endif //STDO_LIBRARY_H
