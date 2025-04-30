@@ -12,6 +12,15 @@
 #define STDO_LIBRARY_H
 
 /**
+ * @brief Flushes the write buffer by writing its contents to standard output.
+ *
+ * This function uses a system call to write the contents of the global buffer
+ * `stdo_write_buffer` to the standard output (file descriptor 1). After writing,
+ * it resets the buffer index to 0, effectively clearing the buffer.
+ */
+void flush_write_buffer();
+
+/**
  * @brief Writes a string to the global write buffer.
  *
  * This function adds the given string to the global write buffer, flushing the buffer
