@@ -50,7 +50,7 @@ int stdo_has_atexit_listener = FALSE;
  * `stdo_write_buffer` to the standard output (file descriptor 1). After writing,
  * it resets the buffer index to 0, effectively clearing the buffer.
  */
-void flush_write_buffer()
+inline void flush_write_buffer()
 {
 #ifndef _WIN32 // Guard against Windows incompatibility
     // Make a syscall to write the buffer
@@ -70,7 +70,7 @@ void flush_write_buffer()
  *
  * @param str The string to write to the buffer. If `str` is NULL, the function does nothing.
  */
-void print(const char* str)
+inline void print(const char* str)
 {
 #ifndef _WIN32 // Guard against Windows incompatibility
     // Check if we have exit listeners
@@ -117,7 +117,7 @@ void print(const char* str)
  *
  * @param str The string to write to the buffer. If `str` is NULL, the function does nothing.
  */
-void println(const char* str)
+inline void println(const char* str)
 {
 #ifndef _WIN32 // Guard against Windows incompatibility
     print(str);
