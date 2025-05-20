@@ -33,10 +33,12 @@ int stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
 int stdo_has_atexit_listener = FALSE;
 
+#ifndef _WIN32 // Guard against Windows incompatibility
 #include <stdlib.h>
 #include <syscall.h>
 #include <unistd.h>
 #include "library.h"
+#endif
 
 /**
  * @brief Flushes the write buffer by writing its contents to standard output.
@@ -47,10 +49,12 @@ int stdo_has_atexit_listener = FALSE;
  */
 void flush_write_buffer()
 {
+#ifndef _WIN32 // Guard against Windows incompatibility
     // Make a syscall to write the buffer
     syscall(SYS_write, 1, stdo_write_buffer, stdo_write_buffer_index);
     // Reset the index
     stdo_write_buffer_index = 0;
+#endif
 }
 
 /**
@@ -65,6 +69,7 @@ void flush_write_buffer()
  */
 void print(const char* str)
 {
+#ifndef _WIN32 // Guard against Windows incompatibility
     // Check if we have exit listeners
     if (!stdo_has_atexit_listener)
     {
@@ -97,6 +102,7 @@ void print(const char* str)
         // Move to the next character
         str++;
     }
+#endif
 }
 
 /**
@@ -110,8 +116,10 @@ void print(const char* str)
  */
 void println(const char* str)
 {
+#ifndef _WIN32 // Guard against Windows incompatibility
     print(str);
     print("\n");
+#endif
 }
 
 #if defined(__cplusplus)
