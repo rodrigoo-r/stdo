@@ -11,6 +11,11 @@
 #ifndef STDO_LIBRARY_H
 #define STDO_LIBRARY_H
 
+#if defined(__cplusplus)
+extern "C"
+{
+#endif
+
 /**
  * @brief Flushes the write buffer by writing its contents to standard output.
  *
@@ -42,5 +47,9 @@ void print(const char* str);
  * @param str The string to write to the buffer. If `str` is NULL, the function does nothing.
  */
 void println(const char* str);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif //STDO_LIBRARY_H

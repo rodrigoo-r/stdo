@@ -8,6 +8,11 @@
  * under certain conditions; type `show c' for details.
 */
 
+#if defined(__cplusplus)
+extern "C"
+{
+#endif
+
 // Define true/false values
 #ifndef TRUE
 #define TRUE 1
@@ -108,3 +113,7 @@ void println(const char* str)
     print(str);
     print("\n");
 }
+
+#if defined(__cplusplus)
+}
+#endif
