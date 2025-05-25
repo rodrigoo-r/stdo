@@ -37,9 +37,11 @@ int stdo_write_buffer_index = 0;
 int stdo_has_atexit_listener = FALSE;
 
 #ifndef _WIN32 // Guard against Windows incompatibility
-#include <stdlib.h>
-#include <syscall.h>
-#include <unistd.h>
+#   include <stdlib.h>
+#   include <syscall.h>
+#   include <unistd.h>
+#else
+#   include <stdio.h> // Default to use stdio.h for Windows
 #endif
 
 /**
@@ -104,6 +106,12 @@ inline void print(const char* str)
         // Move to the next character
         str++;
     }
+#else
+    // For Windows, use standard output directly
+    if (str != NULL)
+    {
+        printf("%s", str);
+    }
 #endif
 }
 
@@ -121,6 +129,12 @@ inline void println(const char* str)
 #ifndef _WIN32 // Guard against Windows incompatibility
     print(str);
     print("\n");
+#else
+    // For Windows, use standard output directly
+    if (str != NULL)
+    {
+        puts(str);
+    }
 #endif
 }
 
