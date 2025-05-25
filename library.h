@@ -40,7 +40,6 @@ int stdo_has_atexit_listener = FALSE;
 #include <stdlib.h>
 #include <syscall.h>
 #include <unistd.h>
-#include "library.h"
 #endif
 
 /**
