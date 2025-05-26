@@ -8,4 +8,4 @@
  * under certain conditions; type `show c' for details.
 */
 
-#include "stdo.h"
+#include "include/fluent/stdo/stdo.h"
