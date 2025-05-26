@@ -8,8 +8,8 @@
  * under certain conditions; type `show c' for details.
 */
 
-#ifndef STDO_LIBRARY_H
-#define STDO_LIBRARY_H
+#ifndef FLUENT_LIBC_STDO_LIBRARY_H
+#define FLUENT_LIBC_STDO_LIBRARY_H
 
 #if defined(__cplusplus)
 extern "C"
@@ -142,4 +142,4 @@ inline void println(const char* str)
 }
 #endif
 
-#endif //STDO_LIBRARY_H
+#endif //FLUENT_LIBC_STDO_LIBRARY_H
