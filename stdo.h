@@ -27,7 +27,7 @@ extern "C"
 
 // Define the size of the buffer for buffered output
 #ifndef STDO_WRITE_BUFFER_SIZE
-#define STDO_WRITE_BUFFER_SIZE 1024
+#   define STDO_WRITE_BUFFER_SIZE 1024
 #endif
 
 // Define a global buffer
