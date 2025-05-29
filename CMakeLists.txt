@@ -14,5 +14,5 @@ project(stdo C)
 set(CMAKE_C_STANDARD 11)
 
 add_library(stdo STATIC stdo.c stdo.h)
-target_include_directories(stdo PRIVATE ${CMAKE_BINARY_DIR}/_deps/stdbool-src/include)
+target_include_directories(stdo PRIVATE ${CMAKE_BINARY_DIR}/_deps/stdbool-src)
 target_link_libraries(stdo PRIVATE stdbool)
