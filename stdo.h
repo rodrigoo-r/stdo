@@ -17,12 +17,10 @@ extern "C"
 #endif
 
 // Define true/false values
-#ifndef TRUE
-#define TRUE 1
-#endif
-
-#ifndef FALSE
-#define FALSE 0
+#ifndef FLUENT_LIBC_RELEASE
+#   include <std_bool.h> // fluent_libc
+#else
+#   include <fluent/std_bool/std_bool.h> // fluent_libc
 #endif
 
 // Define the size of the buffer for buffered output
@@ -58,6 +56,8 @@ static inline void flush_write_buffer()
     syscall(SYS_write, 1, stdo_write_buffer, stdo_write_buffer_index);
     // Reset the index
     stdo_write_buffer_index = 0;
+#else
+    fflush(stdout); // For Windows, flush the standard output
 #endif
 }
 
