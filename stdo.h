@@ -94,7 +94,7 @@ static inline void print(const char* str)
         const char c = *str;
 
         // Check if the buffer has enough space
-        if (stdo_write_buffer_index == STDO_WRITE_BUFFER_SIZE)
+        if (stdo_write_buffer_index == __FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE)
         {
             flush_write_buffer();
         }
