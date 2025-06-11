@@ -29,7 +29,7 @@ extern "C"
 #endif
 
 // Define a global buffer
-static char stdo_write_buffer[__FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE];
+static char __fluent_libc_stdo_write_buffer[__FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE];
 static int stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
 static int stdo_has_atexit_listener = FALSE;
@@ -53,7 +53,7 @@ static inline void flush_write_buffer()
 {
 #ifndef _WIN32 // Guard against Windows incompatibility
     // Make a syscall to write the buffer
-    syscall(SYS_write, 1, stdo_write_buffer, stdo_write_buffer_index);
+    syscall(SYS_write, 1, __fluent_libc_stdo_write_buffer, stdo_write_buffer_index);
     // Reset the index
     stdo_write_buffer_index = 0;
 #else
@@ -100,7 +100,7 @@ static inline void print(const char* str)
         }
 
         // Write the character to the buffer
-        stdo_write_buffer[stdo_write_buffer_index] = c;
+        __fluent_libc_stdo_write_buffer[stdo_write_buffer_index] = c;
         stdo_write_buffer_index++;
 
         // Move to the next character
