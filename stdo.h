@@ -29,10 +29,10 @@ extern "C"
 #endif
 
 // Define a global buffer
-char stdo_write_buffer[STDO_WRITE_BUFFER_SIZE];
-int stdo_write_buffer_index = 0;
+static char stdo_write_buffer[STDO_WRITE_BUFFER_SIZE];
+static int stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
-int stdo_has_atexit_listener = FALSE;
+static int stdo_has_atexit_listener = FALSE;
 
 #ifndef _WIN32 // Guard against Windows incompatibility
 #   include <stdlib.h>
