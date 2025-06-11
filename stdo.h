@@ -32,7 +32,7 @@ extern "C"
 static char __fluent_libc_stdo_write_buffer[__FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE];
 static int __fluent_libc_stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
-static int stdo_has_atexit_listener = FALSE;
+static int __fluent_libc_stdo_has_atexit_listener = FALSE;
 
 #ifndef _WIN32 // Guard against Windows incompatibility
 #   include <stdlib.h>
@@ -75,7 +75,7 @@ static inline void print(const char* str)
 {
 #ifndef _WIN32 // Guard against Windows incompatibility
     // Check if we have exit listeners
-    if (!stdo_has_atexit_listener)
+    if (!__fluent_libc_stdo_has_atexit_listener)
     {
         // Add an exit listener
         atexit(flush_write_buffer);
