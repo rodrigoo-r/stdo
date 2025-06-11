@@ -24,12 +24,12 @@ extern "C"
 #endif
 
 // Define the size of the buffer for buffered output
-#ifndef STDO_WRITE_BUFFER_SIZE
-#   define STDO_WRITE_BUFFER_SIZE 1024
+#ifndef __FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE
+#   define __FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE 1024
 #endif
 
 // Define a global buffer
-static char stdo_write_buffer[STDO_WRITE_BUFFER_SIZE];
+static char stdo_write_buffer[__FLUENT_LIBC_STDO_WRITE_BUFFER_SIZE];
 static int stdo_write_buffer_index = 0;
 // Keep track of whether we have added an atexit listener
 static int stdo_has_atexit_listener = FALSE;
